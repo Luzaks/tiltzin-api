@@ -1,10 +1,11 @@
-Rails.application.config.middleware.insert_before 0 , Rack::Cors do 
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost3000"
-    resource "*", headers: :any, methods: [:get, :post, :put, :path, :delete, :options, :head], credentials: true
-  end 
+    origins "http://localhost:3000"
+    resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+  end
+
   allow do
-    origins "https://tiltzin.netlify.app"
-    resource "*", headers: :any, methods: [:get, :post, :put, :path, :delete, :options, :head], credentials: true
-  end  
-end    
+    origins "https://jdh-authentication-app-react.herokuapp.com"
+    resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+  end
+end 
