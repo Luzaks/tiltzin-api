@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_215136) do
+ActiveRecord::Schema.define(version: 2020_08_09_205734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2020_08_07_215136) do
     t.string "famdescription"
   end
 
+  create_table "trips", force: :cascade do |t|
+    t.string "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "destiny_id", null: false
+    t.index ["destiny_id"], name: "index_trips_on_destiny_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -35,4 +45,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_215136) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "trips", "destinies"
+  add_foreign_key "trips", "users"
 end

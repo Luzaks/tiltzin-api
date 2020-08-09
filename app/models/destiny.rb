@@ -1,6 +1,5 @@
 class Destiny < ApplicationRecord
-  has_many :users, :through => :bookings
-
+  has_many :trips, dependent: :destroy 
 
   validates_presence_of :url
   validates_uniqueness_of :url
