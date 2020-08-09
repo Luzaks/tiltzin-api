@@ -1,8 +1,8 @@
-class TrpsController < ApplicationController
+class TripsController < ApplicationController
     before_action :set_trips, only: %i[show destroy]
   
     def index
-        trips = Destiny.all
+        trips = Trip.all
     
         render json: trips
     end
@@ -12,8 +12,16 @@ class TrpsController < ApplicationController
     end
   
     def create
-      @trips = Trip.create!(trip_params)
-      json_response(@trips, )
+      trip = Trip.create!(
+        destiny_id: params[:destiny_id],
+        user_id: params[:user_id],
+        date: params[:date]
+      )
+      if trip
+        render json: trip
+      else
+        render json: { status: 500 }
+      end
     end
   
     def destroy
@@ -22,11 +30,7 @@ class TrpsController < ApplicationController
     end
   
     private
-  
-    def trip_params
-      params.permit(:destiny_id, :user_id, :date)
-    end
-  
+    
     def set_trip
       @trip = Trip.find_by!(id: params[:id])
     end
