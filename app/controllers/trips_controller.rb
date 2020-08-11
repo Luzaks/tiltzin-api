@@ -32,9 +32,9 @@ class TripsController < ApplicationController
     render json: { status: 200 }
   end
 
-    private
+  private
 
   def set_trip
     @trip = Trip.find_by!(id: params[:id])
   end
-  end
+end

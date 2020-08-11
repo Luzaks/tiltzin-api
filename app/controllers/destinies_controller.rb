@@ -6,11 +6,11 @@ class DestiniesController < ApplicationController
   end
 
   def new
-    destiny = Destiny.new
+    Destiny.new
   end
 
   def create
-    destiny = Destiny.create!(
+    Destiny.create!(
       url: params[:url],
       city: params[:city],
       country: params[:country],
