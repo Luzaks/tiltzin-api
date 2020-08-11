@@ -1,10 +1,14 @@
 class TripsController < ApplicationController
-    before_action :set_trips, only: %i[show destroy]
-  
+  before_action :set_trips, only: %i[show destroy]  
+  before_action :current_user, only: %i[index]
+
+
     def index
-        trips = Trip.all
-    
-        render json: trips
+      if @current_user
+        render json: @current_user.trips
+      else 
+        render json: Trip.all
+      end
     end
   
     def show
@@ -26,7 +30,7 @@ class TripsController < ApplicationController
   
     def destroy
       @trip.destroy
-      render json: { status: 200, destroyed_trip: true }    
+      render json: { status: 200 }    
     end
   
     private

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  include CurrentUserConcern
+  before_action :current_user, only: [:logged_in]
 
   def create
     user = User
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
   end
   
   def logged_in
+
     if @current_user
       render json: {
         logged_in: true,
