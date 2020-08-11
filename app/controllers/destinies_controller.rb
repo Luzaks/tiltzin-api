@@ -1,11 +1,10 @@
 class DestiniesController < ApplicationController
-  
   def index
     @destinies = Destiny.all
 
     render json: @destinies
   end
-  
+
   def new
     destiny = Destiny.new
   end
@@ -18,7 +17,7 @@ class DestiniesController < ApplicationController
       family: params[:family],
       description: params[:description],
       state: params[:state],
-      famdescription: params[:famdescription],
+      famdescription: params[:famdescription]
     )
   end
 end

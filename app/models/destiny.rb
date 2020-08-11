@@ -1,5 +1,5 @@
 class Destiny < ApplicationRecord
-  has_many :trips, dependent: :destroy 
+  has_many :trips, dependent: :destroy
 
   validates_presence_of :url
   validates_uniqueness_of :url
