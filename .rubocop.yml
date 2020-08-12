@@ -9,6 +9,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - "bin/bundle"
 Metrics/MethodLength:
   Max: 20
 Metrics/AbcSize:
