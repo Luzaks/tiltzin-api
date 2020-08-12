@@ -33,6 +33,9 @@ Tiltzin is an application por medium and large screens, it's layout works up 650
 
 The style and desgin of the page was made thinking in the colors that represents the imaginery of indigenous ethnic groups of people in Mexico, but at the same time, it mix a much more modern approach in order to make it attractive to the eye.
 
+The back end structure for Tiltzin lays in three tables, for users, for destinies and for appointments, thanks to this we are able to create new users and new appointments dynamically by receiving RESTful requests from the front end application. The destinies were manually created.
+
+
 ### 👉 Landing Page
 
 In Tiltztin you need to sign up or sign in the same as you regularly do it in normal applications, a form will be displayed if you click on the Sign in or in Sign up link in the navigation bar of the landing page.
