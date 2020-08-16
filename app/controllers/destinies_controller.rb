@@ -8,5 +8,4 @@ class DestiniesController < ApplicationController
   def new
     Destiny.new
   end
-  
 end
