@@ -23,7 +23,7 @@ class TripsController < ApplicationController
     if trip
       render json: trip
     else
-      render json: { status: 500 }
+      render json: { status: 400 }
     end
   end
 
