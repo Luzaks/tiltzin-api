@@ -15,11 +15,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.create!(
-      destiny_id: params[:destiny_id],
-      user_id: params[:user_id],
-      date: params[:date]
-    )
+    trip = Trip.create!(params_trip)
     if trip
       render json: trip
     else
@@ -36,5 +32,9 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find_by!(id: params[:id])
+  end
+
+  def params_trip
+    params.permit(:destiny_id, :user_id, :date)
   end
 end

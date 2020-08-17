@@ -5,7 +5,18 @@ class DestiniesController < ApplicationController
     render json: @destinies
   end
 
-  def new
-    Destiny.new
+  def create
+    destiny = Destiny.create!(params_destinies)
+    if destiny
+      render json: { status: 201 }
+    else
+      render json: { status: 400 }
+    end
+  end
+
+  private
+
+  def params_destinies
+    params.permit(:url, :city, :country, :family, :description, :state, :famdescription)
   end
 end
