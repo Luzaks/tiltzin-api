@@ -1,11 +1,6 @@
 class RegistrationsController < ApplicationController
   def create
-    user = User.create!(
-      username: params['user']['username'],
-      email: params['user']['email'],
-      password: params['user']['password'],
-      password_confirmation: params['user']['password_confirmation']
-    )
+    user = User.create!(params_registrations)
 
     if user
       session[:user_id] = user.id
@@ -14,7 +9,13 @@ class RegistrationsController < ApplicationController
         user: user
       }
     else
-      render json: { status: 500 }
+      render json: { status: 400 }
     end
+  end
+
+  private
+
+  def params_registrations
+    params.permit(:username, :email, :password, :password_confirmation)
   end
 end
