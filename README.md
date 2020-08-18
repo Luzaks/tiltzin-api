@@ -115,7 +115,10 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 *   Bycript 
 *   Json
 *   Cors
-*   Postgres 
+*   Postgres
+*   Rspec
+*   Shoulda Matchers
+*   Factory Bot 
 *   Heroku
 
 
