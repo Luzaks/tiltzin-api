@@ -101,7 +101,7 @@ In the project directory, you can run, in your favorite bash:
 
 2.- For installing dependencies `rails console`
 
-3.- Outside the web-server, for running tests `rails console --sandbox`
+3.- For running tests `rspec`
 
 For running the app in the development mode after following the steps number 1.<br />
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.

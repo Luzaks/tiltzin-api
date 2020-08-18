@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'registrations actions', type: :request do
-  let(:attributes) { { user: { username: 'John', email: 'j@doe.com', password: '123', password_confirmation: '123' } } }
+  let(:attributes) { { username: 'John', email: 'j@doe.com', password: '123', password_confirmation: '123' } }
 
   describe 'POST /registrations' do
     before { post '/registrations', params: attributes }

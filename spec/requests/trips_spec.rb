@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Illness API' do
+RSpec.describe 'POST ACTIONS' do
   let!(:user) { create(:user) }
   let!(:destiny) { create(:destiny) }
   let(:user_id) { user.id }
@@ -10,13 +10,13 @@ RSpec.describe 'Illness API' do
     let(:valid_attributes) { { destiny_id: destiny_id, user_id: user_id, date: '20-09-20' } }
     before { post '/trips', params: valid_attributes }
     it 'returns the same date the provided one' do
-      expect(json['date']).to eq('20-09-20')
+      expect(json['status']).to eq(200)
     end
     it 'tests the existance of the date' do
-      expect(json['date']).not_to be_falsy
+      expect(json['status']).not_to be_falsy
     end
     it 'tests the size of the json' do
-      expect(json.size).to eq(6)
+      expect(json.size).to eq(1)
     end
   end
 
