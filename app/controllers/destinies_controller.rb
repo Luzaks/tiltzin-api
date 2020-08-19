@@ -10,7 +10,10 @@ class DestiniesController < ApplicationController
     if destiny
       render json: { status: 201 }
     else
-      render json: { status: 400 }
+      render json: {
+        status: 400,
+        errors: 'Something go wrong. Possible duplicated input. Please review your data and try again.'
+      }
     end
   end
 

@@ -24,8 +24,15 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @trip.destroy
-    render :no_content
+    if @trip
+      @trip.destroy
+      render json: { status: 200 }
+    else
+      render json: {
+        status: 401,
+        errors: 'Something go wrong. Please try again.'
+      }
+    end
   end
 
   private
