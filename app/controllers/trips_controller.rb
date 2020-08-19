@@ -42,6 +42,6 @@ class TripsController < ApplicationController
   end
 
   def params_trip
-    params.permit(:destiny_id, :user_id, :date)
+    params.permit(:destiny_id, :user_id, :date, :destiny_name)
   end
 end

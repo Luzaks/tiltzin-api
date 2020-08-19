@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_809_205_734) do
+ActiveRecord::Schema.define(version: 20_200_819_204_247) do # rubocop:disable Metrics/BlockLength
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20_200_809_205_734) do
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'user_id', null: false
     t.bigint 'destiny_id', null: false
+    t.string 'destiny_name'
     t.index ['destiny_id'], name: 'index_trips_on_destiny_id'
     t.index ['user_id'], name: 'index_trips_on_user_id'
   end
