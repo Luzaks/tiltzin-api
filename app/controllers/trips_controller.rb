@@ -1,12 +1,12 @@
 class TripsController < ApplicationController
   before_action :set_trips, only: %i[show destroy]
-  before_action :current_user, only: %i[index]
 
   def index
-    if @current_user
-      render json: @current_user.trips
+    @user_trips = current_user.trips
+    if @user_trips
+      render json: { trips: @user_trips }
     else
-      render json: Trip.all
+      render json: { error: 'something went wrong' }
     end
   end
 

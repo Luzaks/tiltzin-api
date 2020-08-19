@@ -4,10 +4,9 @@ class SessionsController < ApplicationController
   def create
     @user = User
       .find_by(email: params_sessions[:email])
-      .try(:authenticate, params_sessions[:password])
 
-    if @user
-      session[:user_id] = @user.id
+    if @user&.authenticate(params_sessions[:password])
+      login!
       render json: {
         status: :created,
         logged_in: true,
@@ -19,10 +18,10 @@ class SessionsController < ApplicationController
   end
 
   def logged_in
-    if @current_user
+    if logged_in? && current_user
       render json: {
         logged_in: true,
-        user: @current_user
+        user: current_user
       }
     else
       render json: {
@@ -32,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    reset_session
+    logout!
     render json: { status: 200, logged_out: true }
   end
 
