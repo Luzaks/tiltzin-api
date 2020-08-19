@@ -2,16 +2,16 @@ class SessionsController < ApplicationController
   before_action :current_user, only: [:logged_in]
 
   def create
-    user = User
+    @user = User
       .find_by(email: params_sessions[:email])
       .try(:authenticate, params_sessions[:password])
 
-    if user
-      session[:user_id] = user.id
+    if @user
+      session[:user_id] = @user.id
       render json: {
         status: :created,
         logged_in: true,
-        user: user
+        user: @user
       }
     else
       render json: { status: 401 }
