@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trips, only: %i[show destroy]
+  before_action :set_trip, only: %i[show destroy]
 
   def index
     @user_trips = current_user.trips
@@ -24,6 +24,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    @trip = Trip.find_by!(id: params[:id])
     if @trip
       @trip.destroy
       render json: { status: 200 }
