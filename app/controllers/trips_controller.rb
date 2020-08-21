@@ -6,7 +6,10 @@ class TripsController < ApplicationController
     if @user_trips
       render json: { trips: @user_trips }
     else
-      render json: { error: 'something went wrong' }
+      render json: {
+        trips: Trip.all,
+        error: 'something went wrong'
+      }
     end
   end
 
