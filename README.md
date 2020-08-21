@@ -97,16 +97,27 @@ Note that you will need to create a username in order to create a new database i
 
 In the project directory, you can run, in your favorite bash:
 
-1.- For starting the web-server `rails s -p 3001`
+1.- For starting the web-server along with the front end app `rails s -p 3001`
 
-2.- For installing dependencies `bundle install`
+2.- For starting the web-server without the front end app `rails s`
 
-3.- For running tests `rspec`
+3.- For installing dependencies `bundle install`
 
 4.- For running the console `rails console`
 
-For running the app in the development mode after following the steps number 1.<br />
-Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+5.- For testing check your local environment: 
+
+-   In all environments you can run:
+
+     `bundle exec rspec`
+     
+-   Only for an environtment with Ruby version of 2.7.0 and a rspec-rails version of 3.6:
+     
+     `rspec`
+      
+
+For running the app in the development mode after following the steps number 1 or number 2.<br />
+Open [http://localhost:3001](http://localhost:3001) or [http://localhost:3000](http://localhost:3000), depending on the previous step followed, to view it in the browser.
 
 
 ### 🛠 Built With

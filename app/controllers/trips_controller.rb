@@ -17,7 +17,7 @@ class TripsController < ApplicationController
   def create
     trip = Trip.create!(params_trip)
     if trip
-      render json: { status: 200, trip: trip }
+      render json: { status: 200 }
     else
       render json: { status: 400 }
     end
