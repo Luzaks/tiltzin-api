@@ -17,14 +17,13 @@ class TripsController < ApplicationController
   def create
     trip = Trip.create!(params_trip)
     if trip
-      render json: { status: 200 }
+      render json: { status: 200, trip: trip }
     else
       render json: { status: 400 }
     end
   end
 
   def destroy
-    @trip = Trip.find_by!(id: params[:id])
     if @trip
       @trip.destroy
       render json: { status: 200 }
