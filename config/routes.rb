@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
   get :index, to: 'destinies#index'
-  get :list, to: 'trips#index'
   root to: 'static#home'
 end
